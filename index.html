@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Aviafix Solution FZE | Global Aircraft Parts & Components</title>
+    <link rel="icon" href="avia.jpeg">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: только Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f6fbf7;
+            color: #1a2e1f;
+            line-height: 1.5;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        :root {
+            --green-deep: #0f3b2a;
+            --green-forest: #20573a;
+            --green-moss: #3b6e4b;
+            --green-pale: #e6f0e6;
+            --gold-accent: #c9a959;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+            width: 100%;
+        }
+
+        /* Адаптивные отступы для контейнера */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+        }
+
+        /* Header */
+        header {
+            background: white;
+            border-bottom: 1px solid rgba(15,59,42,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            width: 100%;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        /* Логотип */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: clamp(10px, 2vw, 15px);
+        }
+
+        .logo-img {
+            width: clamp(50px, 6vw, 60px);
+            height: clamp(50px, 6vw, 60px);
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--green-forest);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-main {
+            font-size: clamp(1.3rem, 4vw, 1.6rem);
+            font-weight: 600;
+            color: var(--green-deep);
+            line-height: 1.2;
+            white-space: nowrap;
+        }
+
+        .logo-main span {
+            font-weight: 400;
+            color: var(--green-moss);
+            font-size: clamp(1.2rem, 3.5vw, 1.5rem);
+        }
+
+        .logo-since {
+            font-size: clamp(0.6rem, 1.5vw, 0.7rem);
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: clamp(2px, 0.8vw, 3px);
+            color: var(--green-moss);
+            margin-top: 2px;
+            white-space: nowrap;
+        }
+
+        /* Навигация */
+        nav ul {
+            display: flex;
+            gap: clamp(20px, 4vw, 40px);
+            list-style: none;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-weight: 500;
+            color: var(--green-deep);
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            white-space: nowrap;
+        }
+
+        nav a:hover {
+            color: var(--green-forest);
+        }
+
+        /* Hero */
+        .hero {
+            background: var(--green-pale);
+            padding: clamp(40px, 8vw, 80px) 0;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: clamp(30px, 6vw, 60px);
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 6vw, 3.2rem);
+            font-weight: 600;
+            color: var(--green-deep);
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            font-weight: 400;
+            color: var(--green-forest);
+            font-size: clamp(1.6rem, 5vw, 2.5rem);
+            display: block;
+            margin-top: 10px;
+        }
+
+        .hero-description {
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            font-weight: 400;
+            color: #1f4632;
+            margin: clamp(20px, 4vw, 30px) 0;
+            border-left: 4px solid var(--gold-accent);
+            padding-left: clamp(15px, 3vw, 20px);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: clamp(20px, 5vw, 50px);
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-num {
+            font-size: clamp(1.8rem, 4vw, 2.2rem);
+            font-weight: 600;
+            color: var(--green-forest);
+        }
+
+        .stat-label {
+            font-size: clamp(0.7rem, 1.5vw, 0.8rem);
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: clamp(1px, 0.3vw, 2px);
+            color: #416d51;
+        }
+
+        .hero-image {
+            text-align: center;
+        }
+
+        .hero-image i {
+            font-size: clamp(8rem, 20vw, 12rem);
+            color: var(--green-moss);
+            opacity: 0.3;
+        }
+
+        /* Partners */
+        .partners {
+            padding: clamp(20px, 4vw, 30px) 0;
+            border-bottom: 1px solid rgba(15,59,42,0.1);
+            text-align: center;
+        }
+
+        .partners h4 {
+            font-weight: 400;
+            color: var(--green-moss);
+            margin-bottom: clamp(15px, 3vw, 20px);
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            letter-spacing: clamp(2px, 0.5vw, 3px);
+        }
+
+        .partner-logos {
+            display: flex;
+            justify-content: center;
+            gap: clamp(15px, 4vw, 30px);
+            flex-wrap: wrap;
+        }
+
+        .partner-logos span {
+            padding: clamp(6px, 1.5vw, 8px) clamp(16px, 4vw, 30px);
+            background: white;
+            border-radius: 40px;
+            font-weight: 500;
+            color: var(--green-forest);
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            border: 1px solid rgba(15,59,42,0.1);
+            white-space: nowrap;
+        }
+
+        /* Section title */
+        .section-title {
+            text-align: center;
+            margin-bottom: clamp(30px, 6vw, 50px);
+        }
+
+        .section-title h2 {
+            font-size: clamp(1.8rem, 5vw, 2.4rem);
+            font-weight: 600;
+            color: var(--green-deep);
+        }
+
+        .section-title p {
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+            font-weight: 400;
+            color: var(--green-moss);
+            margin-top: 10px;
+        }
+
+        /* Grid */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: clamp(15px, 3vw, 30px);
+        }
+
+        .card {
+            background: white;
+            padding: clamp(20px, 4vw, 30px);
+            border-radius: 16px;
+            border: 1px solid rgba(15,59,42,0.1);
+            height: 100%;
+        }
+
+        .card i {
+            font-size: clamp(1.8rem, 4vw, 2rem);
+            color: var(--green-forest);
+            margin-bottom: clamp(15px, 3vw, 20px);
+        }
+
+        .card h3 {
+            font-size: clamp(1.3rem, 3vw, 1.5rem);
+            font-weight: 600;
+            color: var(--green-deep);
+            margin-bottom: clamp(10px, 2vw, 15px);
+        }
+
+        .card p {
+            font-weight: 400;
+            color: #2b4a37;
+            line-height: 1.6;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        /* Products */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: clamp(10px, 2vw, 15px);
+        }
+
+        .product-item {
+            background: #f2f9f2;
+            padding: clamp(12px, 2.5vw, 15px) clamp(15px, 3vw, 20px);
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            gap: clamp(10px, 2vw, 15px);
+            font-weight: 500;
+            color: var(--green-deep);
+            border: 1px solid rgba(15,59,42,0.1);
+            font-size: clamp(0.8rem, 1.8vw, 0.95rem);
+            white-space: nowrap;
+        }
+
+        .product-item i {
+            font-size: clamp(1.2rem, 2.5vw, 1.4rem);
+            color: var(--green-forest);
+            min-width: 24px;
+            text-align: center;
+        }
+
+        /* Contact */
+        .contact-section {
+            background: var(--green-pale);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: clamp(25px, 5vw, 50px);
+            background: white;
+            border-radius: clamp(24px, 6vw, 40px);
+            padding: clamp(25px, 6vw, 50px);
+        }
+
+        .contact-details h3 {
+            font-size: clamp(1.6rem, 4vw, 2rem);
+            font-weight: 600;
+            color: var(--green-deep);
+            margin-bottom: clamp(20px, 4vw, 30px);
+        }
+
+        .contact-line {
+            display: flex;
+            align-items: center;
+            gap: clamp(15px, 3vw, 20px);
+            margin-bottom: clamp(15px, 3vw, 25px);
+            flex-wrap: wrap;
+        }
+
+        .contact-line i {
+            width: clamp(40px, 8vw, 50px);
+            height: clamp(40px, 8vw, 50px);
+            background: var(--green-pale);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--green-deep);
+            font-size: clamp(1.2rem, 3vw, 1.4rem);
+            flex-shrink: 0;
+        }
+
+        .contact-line a {
+            color: var(--green-forest);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid var(--gold-accent);
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            word-break: break-word;
+        }
+
+        .warehouse-badge {
+            background: var(--green-deep);
+            color: white;
+            padding: clamp(20px, 5vw, 40px);
+            border-radius: clamp(24px, 5vw, 32px);
+            text-align: center;
+        }
+
+        .warehouse-badge i {
+            font-size: clamp(2.2rem, 6vw, 3rem);
+            color: var(--gold-accent);
+            margin-bottom: clamp(10px, 3vw, 20px);
+        }
+
+        .warehouse-badge p {
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--green-deep);
+            color: white;
+            padding: clamp(30px, 6vw, 40px) 0 clamp(15px, 3vw, 20px);
+        }
+
+        .footer-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: clamp(20px, 4vw, 30px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: clamp(15px, 3vw, 20px);
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-main > div:first-child {
+            font-size: clamp(0.8rem, 2vw, 0.95rem);
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: clamp(15px, 4vw, 30px);
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 400;
+            opacity: 0.8;
+            font-size: clamp(0.8rem, 2vw, 0.95rem);
+            white-space: nowrap;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: clamp(10px, 2vw, 15px);
+            flex-wrap: wrap;
+            text-align: center;
+        }
+
+        .footer-bottom img {
+            width: clamp(24px, 5vw, 28px);
+            height: clamp(24px, 5vw, 28px);
+            border-radius: 50%;
+            border: 2px solid var(--gold-accent);
+        }
+
+        .footer-bottom span {
+            font-size: clamp(0.8rem, 2vw, 0.95rem);
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        /* ===== АДАПТИВНЫЕ БРЕЙКПОИНТЫ ===== */
+        
+        /* Планшеты и маленькие ноутбуки */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: clamp(2.2rem, 5vw, 2.8rem);
+            }
+            
+            .hero h1 span {
+                font-size: clamp(1.8rem, 4vw, 2.2rem);
+            }
+        }
+
+        /* Планшеты (вертикально) */
+        @media (max-width: 900px) {
+            .grid-3,
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero h1 span {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Мобильные устройства */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .logo {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            nav ul {
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            nav a {
+                font-size: 0.9rem;
+            }
+            
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-description {
+                text-align: center;
+                border-left: none;
+                border-top: 4px solid var(--gold-accent);
+                padding-left: 0;
+                padding-top: 20px;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+            }
+            
+            .stat {
+                text-align: center;
+            }
+            
+            .hero-image {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-details h3 {
+                text-align: center;
+            }
+            
+            .contact-line {
+                justify-content: center;
+                text-align: center;
+            }
+            
+            .footer-main {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Маленькие мобильные */
+        @media (max-width: 600px) {
+            .grid-3,
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero h1 span {
+                font-size: 1.6rem;
+            }
+            
+            .hero-stats {
+                gap: 20px;
+            }
+            
+            .stat-num {
+                font-size: 1.6rem;
+            }
+            
+            .partner-logos span {
+                padding: 6px 16px;
+                font-size: 0.85rem;
+            }
+            
+            .contact-line {
+                flex-direction: column;
+            }
+            
+            .product-item {
+                white-space: normal;
+                word-break: break-word;
+            }
+            
+            .footer-links {
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+
+        /* Очень маленькие телефоны */
+        @media (max-width: 380px) {
+            .logo-main {
+                font-size: 1.1rem;
+            }
+            
+            .logo-main span {
+                font-size: 1rem;
+            }
+            
+            .logo-since {
+                font-size: 0.55rem;
+                letter-spacing: 1.5px;
+            }
+            
+            .logo-img {
+                width: 40px;
+                height: 40px;
+            }
+            
+            nav ul {
+                gap: 8px;
+            }
+            
+            nav a {
+                font-size: 0.75rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            
+            .hero h1 span {
+                font-size: 1.3rem;
+            }
+            
+            .hero-description {
+                font-size: 0.9rem;
+            }
+            
+            .stat-num {
+                font-size: 1.4rem;
+            }
+            
+            .stat-label {
+                font-size: 0.65rem;
+            }
+            
+            .partner-logos span {
+                padding: 4px 12px;
+                font-size: 0.75rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.5rem;
+            }
+            
+            .card h3 {
+                font-size: 1.2rem;
+            }
+            
+            .card p {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Дополнительные улучшения */
+        section {
+            padding: clamp(30px, 6vw, 60px) 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <div class="logo">
+            <img src="avia.jpeg" alt="Aviafix logo" class="logo-img" onerror="this.src='https://via.placeholder.com/60x60?text=AF'">
+            <div class="logo-text">
+                <div class="logo-main">AVIAFIX <span>SOLUTION FZE</span></div>
+                <div class="logo-since">Since 2025 · UAE</div>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#company">Company</a></li>
+                <li><a href="#capabilities">Capabilities</a></li>
+                <li><a href="#products">Inventory</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-grid">
+            <div>
+                <h1>
+                    Aircraft Spare Parts
+                    <span>Global Trading & Supply Chain Excellence</span>
+                </h1>
+                <div class="hero-description">
+                    <i class="fas fa-quote-left" style="color: var(--gold-accent); opacity: 0.5; margin-right: 8px;"></i>
+                    Proudly based in SAIF-ZONE, Sharjah — connecting the world with certified aviation components.
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-num">2025</span>
+                        <span class="stat-label">Established</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num">4</span>
+                        <span class="stat-label">Continents</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num">100+</span>
+                        <span class="stat-label">Partners</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <i class="fas fa-globe-asia"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners -->
+    <div class="partners">
+        <div class="container">
+            <h4>Trusted partners across</h4>
+            <div class="partner-logos">
+                <span>EUROPE</span>
+                <span>CHINA</span>
+                <span>USA</span>
+                <span>UAE</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Company -->
+    <section id="company">
+        <div class="container">
+            <div class="section-title">
+                <h2>A Global Aviation Partner</h2>
+                <p>Built on reliability, speed, and uncompromising quality</p>
+            </div>
+            <div class="grid-3">
+                <div class="card">
+                    <i class="fas fa-sitemap"></i>
+                    <h3>Organizational Structure</h3>
+                    <p>Lean operational core with extensive international network of pre-vetted suppliers across Europe, USA, China, and the UAE.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-map-pin"></i>
+                    <h3>Strategic Location</h3>
+                    <p>SAIF Zone, Sharjah — 125 m² warehouse (Q3-180) ensuring rapid redistribution to any continent.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Quality & Risk</h3>
+                    <p>Every component meets international aviation standards. Guaranteed safety and performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capabilities -->
+    <section id="capabilities" style="background: var(--green-pale);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Core Capabilities</h2>
+                <p>Driving efficiency through innovation and partnerships</p>
+            </div>
+            <div class="grid-3">
+                <div class="card">
+                    <i class="fas fa-globe-americas"></i>
+                    <h3>Global Sourcing</h3>
+                    <p>Long-standing relationships with reputable manufacturers. Full traceability on all components.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Supply Chain Optimization</h3>
+                    <p>Modern methodologies reduce lead times. Optimizing logistics for cost and speed.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-check-double"></i>
+                    <h3>Rigorous QA</h3>
+                    <p>High-level control at every stage. Every component verified for airworthiness.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Select Inventory</h2>
+                <p>A sample from our certified stock</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-item"><i class="fas fa-microchip"></i> Compenser for VKRI-4</div>
+                <div class="product-item"><i class="fas fa-bell"></i> Compenser Alarm Model 4</div>
+                <div class="product-item"><i class="fas fa-ruler"></i> Vibration Sensor MV-0.4-1</div>
+                <div class="product-item"><i class="fas fa-satellite-dish"></i> Signaling Sensor DSL-40T</div>
+                <div class="product-item"><i class="fas fa-tachometer-alt"></i> Fuel Indicator IT-9-5</div>
+                <div class="product-item"><i class="fas fa-wind"></i> Oxygen Block AKB-17MU-B-2</div>
+                <div class="product-item"><i class="fas fa-cog"></i> Landing Gear Valve RD20D</div>
+                <div class="product-item"><i class="fas fa-compress-alt"></i> Pressure Reduction CG122-2</div>
+                <div class="product-item"><i class="fas fa-mountain"></i> Altitude Corrector KV-16-1</div>
+                <div class="product-item"><i class="fas fa-tools"></i> Drill ZBN-1-3</div>
+                <div class="product-item"><i class="fas fa-brake-warning"></i> CT Brake 192a 010</div>
+            </div>
+            <p style="text-align: center; margin-top: 30px; color: var(--green-forest); font-weight: 400; font-size: clamp(0.85rem, 2vw, 0.95rem);">* Complete catalog available upon request.</p>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact-section">
+        <div class="container contact-grid">
+            <div class="contact-details">
+                <h3>Get in touch</h3>
+                <div class="contact-line">
+                    <i class="fas fa-phone-alt"></i>
+                    <div><strong style="font-weight: 600;">Phone</strong><br><span style="font-weight: 400;">+971 04 566 87 46</span></div>
+                </div>
+                <div class="contact-line">
+                    <i class="fas fa-envelope"></i>
+                    <div><strong style="font-weight: 600;">Email</strong><br><a href="mailto:aviafixsolutions.fze@gmail.com">aviafixsolutions.fze@gmail.com</a></div>
+                </div>
+                <div class="contact-line">
+                    <i class="fas fa-map-pin"></i>
+                    <div>
+                        <strong style="font-weight: 600;">Warehouse (SAIF Zone)</strong><br>
+                        <a href="https://www.google.com/maps/place/Sharjah+free+zone" target="_blank" style="font-weight: 400;">
+                            125 m², Q3-180, Sharjah, UAE
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="warehouse-badge">
+                <i class="fas fa-warehouse"></i>
+                <p>Strategically located in SAIF-ZONE<br>125 m² · Q3-180</p>
+                <div style="margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 20px;">
+                    <i class="fas fa-clock"></i> <span style="font-weight: 400;">24/7 global coordination</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-main">
+            <div>© 2025 Aviafix Solution FZE — Aircraft Spare Parts & Components Trading</div>
+            <div class="footer-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Quality policy</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <img src="avia.jpeg" alt="Aviafix small logo" onerror="this.src='https://via.placeholder.com/28x28?text=AF'">
+            <span>Committed to safety, compliance, and partnership</span>
+        </div>
+    </div>
+</footer>
+
+<!-- Обработчик ошибок для изображений -->
+<script>
+    document.querySelectorAll('img').forEach(img => {
+        img.onerror = function() {
+            if (this.width === 28 || this.classList.contains('footer-bottom img')) {
+                this.src = 'https://via.placeholder.com/28x28?text=AF';
+            } else {
+                this.src = 'https://via.placeholder.com/60x60?text=AF';
+            }
+            this.onerror = null;
+        }
+    });
+</script>
+
+</body>
+</html>
